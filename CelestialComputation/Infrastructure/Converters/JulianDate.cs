@@ -4,11 +4,11 @@ namespace CelestialComputation.Infrastructure.Converters
 {
     public class JulianDate
     {
-        private readonly double _julian;  //Julian Day number for this date
-        public double Value => _julian;
-        public JulianDate(double julianDay) => (_julian) = (julianDay);
-        public JulianDate(long year, long month, double day) =>_julian = ConvertDateToJulian(year, month, day, 0, 0, 0);        
-        public JulianDate(long year, long month, double day, double hour, double minute, double second) => _julian = ConvertDateToJulian(year, month, day, hour, minute, second);
+        private readonly double _julianDay;  //Julian Day number for this date
+        public double Value => _julianDay;
+        public JulianDate(double julianDay) => (_julianDay) = (julianDay);
+        public JulianDate(long year, long month, double day) =>_julianDay = ConvertDateToJulian(year, month, day, 0, 0, 0);        
+        public JulianDate(long year, long month, double day, double hour, double minute, double second) => _julianDay = ConvertDateToJulian(year, month, day, hour, minute, second);
         
         private static double ConvertDateToJulian(long year, long month, double day, double hour, double minute, double second)
         {
@@ -66,14 +66,14 @@ namespace CelestialComputation.Infrastructure.Converters
 
             var daysInYear = IsLeap(year) ? leapDaysCount : daysCount;
             var julianYear = ConvertDateToJulian(year, month, day, hour, minute, second);
-            year += (long)((_julian - julianYear) / daysInYear);
+            year += (long)((_julianDay - julianYear) / daysInYear);
             return year;
         }
         internal long GetYear()
         {
             const double daysInYear = 365.25;
 
-            var integral = Math.Truncate(_julian + 0.5);
+            var integral = Math.Truncate(_julianDay + 0.5);
             var alpha = DecreaseIfNegative((integral - 1867216.25) / 36524.25); // What the alpha mean?
             var A = integral + 1 + alpha - DecreaseIfNegative(DecreaseIfNegative(alpha) / 4); //Stupid name from astronomical formulas. Have to be determined
             var B = A + 1524; //Stupid name from astronomical formulas

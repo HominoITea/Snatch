@@ -18,7 +18,7 @@ namespace Snatch.Services.ChineseCalendar
         {
             _solarCalendar = solarCalendar;
             _targetDate = targetDate;
-            _currentSeasonAngle = Celestial.EclipticLongitude(targetDate);
+            _currentSeasonAngle = Celestial.GetEclipticLongitude(targetDate);
         }
         public async Task<CalendarItem> GetYearInfoAsync()
         {

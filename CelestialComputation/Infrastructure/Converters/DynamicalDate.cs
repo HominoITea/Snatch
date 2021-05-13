@@ -11,10 +11,13 @@ namespace CelestialComputation.Infrastructure.Converters
         {
             //Outside of the range 1 January 1961 to 500 days after the last leap second,
             // implement TT2UTC as TT2UT1
+            const int dayOffset = 500;
             var leapSecondsArray = LeapSecondsArray.GetArray();
-            int length = leapSecondsArray.Length; 
-            if ((julianDate < leapSecondsArray[0].JulianDate) || (julianDate > (leapSecondsArray[length - 1].JulianDate + 500)))
+            int length = leapSecondsArray.Length;
+            if ((julianDate < leapSecondsArray[0].JulianDate) || (julianDate > (leapSecondsArray[length - 1].JulianDate + dayOffset)))
+            {
                 return ConvertUniversalTime(julianDate);
+            }
 
             double deltaOfTime = GetDeltaOfTime(julianDate);
             double leapSeconds = GetCumulativeLeapSeconds(julianDate);

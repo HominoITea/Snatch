@@ -6,12 +6,11 @@ namespace CelestialComputation
 {
     public class Celestial
     {
-        public static float EclipticLongitude(DateTime date)
+        public static float GetEclipticLongitude(DateTime date)
         {
             var julianDate= new JulianDate(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second);
-            double JDSun = DynamicalTime.ConvertCoordinatedTime(julianDate.Value);
-            var eclipticLongitude = (float)Math.Round(Sun.ApparentEclipticLongitude(JDSun, true), 4);
-            return eclipticLongitude;
+            var convertedTime = DynamicalTime.ConvertCoordinatedTime(julianDate.Value);
+            return (float) Math.Round(Sun.ApparentEclipticLongitude(convertedTime, true), 4);             
         }
     }
 }

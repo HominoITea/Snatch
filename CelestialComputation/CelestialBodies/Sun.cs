@@ -15,8 +15,11 @@ namespace CelestialComputation.CelestialBodies
         static public double ApparentEclipticLatitude(double julianDate, bool highPrecision) => ConvertLatitudeToFK5(julianDate, highPrecision);
         static public double ApparentEclipticLongitude(double julianDate, bool highPrecision)
         {
-            var longitude = ConvertLongitudeToFK5(julianDate, highPrecision) + CoordinateTransformation.SetDMSToDegrees(0, 0, Nutation.NutationInLongitude(julianDate));
+            var longitude = ConvertLongitudeToFK5(julianDate, highPrecision) 
+                + CoordinateTransformation.SetDMSToDegrees(0, 0, Nutation.NutationInLongitude(julianDate));
+
             var radius = Earth.GetSunRadiusVector(julianDate);
+
             return (highPrecision) 
                 ? longitude - (0.005775518 * radius * CoordinateTransformation.SetDMSToDegrees(0, 0, GetVariationEclipticLongitude(julianDate)))
                 : longitude - CoordinateTransformation.SetDMSToDegrees(0, 0, 20.4898 / radius);            

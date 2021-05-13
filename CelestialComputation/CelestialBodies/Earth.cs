@@ -74,9 +74,8 @@ namespace CelestialComputation.CelestialBodies
             var sunLatitudeFirstGroup = GetCalculatedValue(PositionByOrbitalElementsArray.GetSunLatitudeFirstArray(), julianMillennias);
 
             double value = (sunLatitudeBase + sunLatitudeFirstGroup * julianMillennias) / 100000000;
-
-            value = CoordinateTransformation.MapToMinus90To90Range(CoordinateTransformation.SetRadiansToDegrees(value));
-            return value;
+            
+            return CoordinateTransformation.MapToMinus90To90Range(CoordinateTransformation.SetRadiansToDegrees(value));
         }       
         static public double GetSunRadiusVector(double julianDate)
         {

@@ -28,11 +28,11 @@ namespace Core.Controllers
         {
             Sexagenary = new SexagenaryDTO
             {
-                Branch = _branches.FirstOrDefault(x => x.Id == BranchId), // new Branch(BranchId, _branches).BranchInfo,
-                Stem = _stems.FirstOrDefault(x => x.Id == StemId), //new Stem(StemId, _stems).StemInfo,
-                Dagua = SexagenaryRow.Dagua, //Token.Value<int>("dagua"),
-                Period = SexagenaryRow.Period, //Token.Value<int>("period"),
-                WuxingId = SexagenaryRow.WuxingId, //Token.Value<int>("wuxing_id")
+                Branch = _branches.FirstOrDefault(x => x.Id == BranchId), 
+                Stem = _stems.FirstOrDefault(x => x.Id == StemId), 
+                Dagua = SexagenaryRow.Dagua, 
+                Period = SexagenaryRow.Period, 
+                WuxingId = SexagenaryRow.WuxingId, 
             };
         }
     }
