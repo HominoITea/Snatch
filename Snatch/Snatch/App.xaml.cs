@@ -1,4 +1,5 @@
 ﻿using Snatch.Services;
+using Snatch.Services.ChineseCalendar;
 using Snatch.Views;
 using System;
 using Xamarin.Forms;
@@ -14,6 +15,7 @@ namespace Snatch
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<IChineseCalendarService>();
             MainPage = new AppShell();
         }
 

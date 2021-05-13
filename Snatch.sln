@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snatch.iOS", "Snatch\Snatch
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Snatch", "Snatch\Snatch\Snatch.csproj", "{71E8B34B-8DD3-4E43-B554-0BF136D61B4B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "ChineseDateTime\Core.csproj", "{DCB761C7-7821-4F4B-839C-192E9C9E04AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{DCB761C7-7821-4F4B-839C-192E9C9E04AA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CelestialComputation", "CelestialComputation\CelestialComputation.csproj", "{3DDEE330-08B6-4D0B-86F5-1A2003392BA1}"
 EndProject

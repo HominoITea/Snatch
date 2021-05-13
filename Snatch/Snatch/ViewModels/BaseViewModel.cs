@@ -1,5 +1,6 @@
 ﻿using Snatch.Models;
 using Snatch.Services;
+using Snatch.Services.ChineseCalendar;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ namespace Snatch.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public ICalendarStore<CalendarItem> DataStore => DependencyService.Get<ICalendarStore<CalendarItem>>();
+        public IChineseCalendarService _calendar => DependencyService.Get<ChineseCalendarService>();
 
         bool isBusy = false;
         public bool IsBusy

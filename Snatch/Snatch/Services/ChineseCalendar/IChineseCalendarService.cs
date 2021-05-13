@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Snatch.Services.ChineseCalendar
 {
-    interface IChineseCalendarService
+    public interface IChineseCalendarService
     {
         public Task<CalendarItem> GetYearInfoAsync();
         public Task<CalendarItem> GetMonthInfoAsync(Func<Task<CalendarItem>> yearFunc);
