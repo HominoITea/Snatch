@@ -8,7 +8,7 @@ using System.Text;
 
 namespace CelestialComputation.CelestialBodies
 {
-    class Earth
+    public static class Earth
     {
         public static double CalculateEarthPosition(double julianDate)
         {
@@ -35,7 +35,7 @@ namespace CelestialComputation.CelestialBodies
             }
             return CoordinateTransformation.MapTo0To2PIRange(result);
         }
-        static public double GetSunEclipticLongitude(double julianDate, bool highPrecision)
+        public static double GetSunEclipticLongitude(double julianDate, bool highPrecision)
         {
             if (highPrecision)
             {
@@ -66,7 +66,7 @@ namespace CelestialComputation.CelestialBodies
                 return CoordinateTransformation.MapTo0To360Range(CoordinateTransformation.SetRadiansToDegrees(value));
             }
         }
-        static public double GetSunEclipticLatitude(double julianDate)
+        public static double GetSunEclipticLatitude(double julianDate)
         {
             var julianMillennias = Tools.GetMillenniasCount(julianDate);// (julianDate - 2451545) / 365250;
 
@@ -77,7 +77,7 @@ namespace CelestialComputation.CelestialBodies
             
             return CoordinateTransformation.MapToMinus90To90Range(CoordinateTransformation.SetRadiansToDegrees(value));
         }       
-        static public double GetSunRadiusVector(double julianDate)
+        public static double GetSunRadiusVector(double julianDate)
         {
             double julianMillennias = Tools.GetMillenniasCount(julianDate);
 

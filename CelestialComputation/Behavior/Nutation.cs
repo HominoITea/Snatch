@@ -9,7 +9,7 @@ namespace CelestialComputation.Behavior
     static class Nutation
     {
         //A lot of magic number. The subject to determine all of coefficients
-        static public double NutationInLongitude(double julianDate)
+        public static double NutationInLongitude(double julianDate)
         {
             const int epoch = 2451545; // In Julian 1/1/2000
             const int daysInCentury = 36525;

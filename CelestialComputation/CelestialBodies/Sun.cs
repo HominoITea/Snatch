@@ -11,9 +11,9 @@ namespace CelestialComputation.CelestialBodies
     //Очень много всяких постоянных коэффициентов, определять названия всех - времени нет.
     class Sun
     {
-        static public double GeometricEclipticLatitude(double julianDate) => -Earth.GetSunEclipticLatitude(julianDate);
-        static public double ApparentEclipticLatitude(double julianDate, bool highPrecision) => ConvertLatitudeToFK5(julianDate, highPrecision);
-        static public double ApparentEclipticLongitude(double julianDate, bool highPrecision)
+        public static double GeometricEclipticLatitude(double julianDate) => -Earth.GetSunEclipticLatitude(julianDate);
+        public static double ApparentEclipticLatitude(double julianDate, bool highPrecision) => ConvertLatitudeToFK5(julianDate, highPrecision);
+        public static double ApparentEclipticLongitude(double julianDate, bool highPrecision)
         {
             var longitude = ConvertLongitudeToFK5(julianDate, highPrecision) 
                 + CoordinateTransformation.SetDMSToDegrees(0, 0, Nutation.NutationInLongitude(julianDate));
@@ -24,14 +24,14 @@ namespace CelestialComputation.CelestialBodies
                 ? longitude - (0.005775518 * radius * CoordinateTransformation.SetDMSToDegrees(0, 0, GetVariationEclipticLongitude(julianDate)))
                 : longitude - CoordinateTransformation.SetDMSToDegrees(0, 0, 20.4898 / radius);            
         }        
-        static public double ConvertLongitudeToFK5(double julianDate, bool highPrecision)
+        public static double ConvertLongitudeToFK5(double julianDate, bool highPrecision)
         {
             double longitude = GetEclipticLongitude(julianDate, highPrecision);
             double latitude = GeometricEclipticLatitude(julianDate);
             longitude += FK5.CorrectLongitude(longitude, latitude, julianDate);
             return longitude;
         }
-        static public double ConvertLatitudeToFK5(double julianDate, bool highPrecision)
+        public static double ConvertLatitudeToFK5(double julianDate, bool highPrecision)
         {
             //Convert to the FK5 stystem
             double Longitude = GetEclipticLongitude(julianDate, highPrecision);
@@ -41,13 +41,13 @@ namespace CelestialComputation.CelestialBodies
 
             return Latitude;
         }
-        static public double GetEclipticLongitude(double julianDate, bool highPrecision)
+        public static double GetEclipticLongitude(double julianDate, bool highPrecision)
         {
             double earth = Earth.GetSunEclipticLongitude(julianDate, highPrecision);
             return CoordinateTransformation.MapTo0To360Range(earth + 180);
         }
         
-        static public double GetVariationEclipticLongitude(double julianDate)
+        public static double GetVariationEclipticLongitude(double julianDate)
         {
             var millenniasCount = Tools.GetMillenniasCount(julianDate);
             double deltaLambda = 3548.193

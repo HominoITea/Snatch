@@ -5,7 +5,7 @@ namespace CelestialComputation.Infrastructure.Converters
 {
     internal static class FK5
     {
-        static public double CorrectLongitude(double longitude, double latitude, double julianDate)
+        public static double CorrectLongitude(double longitude, double latitude, double julianDate)
         {
             double julianCenturies = Tools.GetCenturiesCount(julianDate);
             double Ldash = longitude - 1.397 
@@ -20,7 +20,7 @@ namespace CelestialComputation.Infrastructure.Converters
                 * Math.Tan(latitude);
             return CoordinateTransformation.SetDMSToDegrees(0, 0, value);
         }
-        static public double CorrectLatitude(double longitude, double julianDate)
+        public static double CorrectLatitude(double longitude, double julianDate)
         {
             double julianCenturies = Tools.GetCenturiesCount(julianDate);
             double Ldash = longitude - 1.397 
