@@ -13,22 +13,22 @@ namespace CelestialComputation.Infrastructure.Converters
         }        
         public static double SetRadiansToDegrees(double radians)
         {
-            var radianToDegrees = 180 / Math.PI;
+            const double radianToDegrees = 180 / Math.PI;
             return radians * radianToDegrees;
         }
         public static double SetDegreesToRadians(double degrees)
         {
-            var degreeToRaians = 0.017453292519943295769236907684886;
+            const double degreeToRaians = 0.017453292519943295769236907684886;
             return degrees * degreeToRaians;
         }
         public static double SetRadiansToHours(double radians)
         {
-            var radianToHours = 3.8197186342054880584532103209403;
+            const double radianToHours = 3.8197186342054880584532103209403;
             return radians * radianToHours;
         }
         public static double SetHoursToRadians(double hours)
         {
-            var hourToRadians = 0.26179938779914943653855361527329;
+            const double hourToRadians = 0.26179938779914943653855361527329;
             return hours * hourToRadians;
         }
         public static double SetDMSToDegrees(double degrees, double minutes, double seconds, bool positive = true)

@@ -5,12 +5,21 @@ using Core.Models;
 
 namespace Snatch.Models
 {
-    public class CalendarItem
+    public readonly struct CalendarItem
     {
-        public Stem Stem { get; set; }
-        public Branch Branch { get; set; }
-        public int Dagua { get; set; }
-        public int Period { get; set; }
-        public int WuxingId { get; set; }
+        public Stem Stem { get;  }
+        public Branch Branch { get; }
+        public int Dagua { get; }
+        public int Period { get; }
+        public int WuxingId { get; }
+
+        public CalendarItem(Stem stem, Branch branch, int dagua, int period, int wuxingId)
+        {
+            Stem = stem;
+            Branch = branch;
+            Dagua = dagua;
+            Period = period;
+            WuxingId = wuxingId;
+        }
     }
 }

@@ -8,8 +8,8 @@ namespace Core.Infrastructure.Enums
     {
         Rat = 1,
         Ox,
-        Tiger = 3,
-        Rabbit = 4,
+        Tiger,
+        Rabbit,
         Dragon,
         Snake,
         Horse,

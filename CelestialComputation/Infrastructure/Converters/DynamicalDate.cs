@@ -36,13 +36,13 @@ namespace CelestialComputation.Infrastructure.Converters
             if ((julianDate >= deltas[0].JulianDate) && (julianDate < deltas[deltas.Length - 1].JulianDate))
             {
                 //Find the index in the lookup table which contains the julianDate value closest to the julianDate input parameter
-                bool found = false;
+                bool isFound = false;
                 int foundIndecies = 0;
-                while (!found)
+                while (!isFound)
                 {
-                    found = (deltas[foundIndecies].JulianDate > julianDate);
+                    isFound = (deltas[foundIndecies].JulianDate > julianDate);
 
-                    if (!found)
+                    if (!isFound)
                     {
                         ++foundIndecies;
                     }

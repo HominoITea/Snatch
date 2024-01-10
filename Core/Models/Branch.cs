@@ -4,20 +4,37 @@ using System.Text;
 
 namespace Core.Models
 {
-    public class Branch
+    public readonly struct Branch
     {
-        public int Id { get; set; }
-        public char Glyph { get; set; }
-        public string Pinyin { get; set; }
-        public string Transcription { get; set; }
-        public string Ru { get; set; }
-        public string En { get; set; }
-        public int WuxingId { get; set; }
-        public int YinYangId { get; set; }
-        public double Degree { get; set; }
-        public int StartHour { get; set; }
-        public int EndHour { get; set; }
-        public double EclipticStart { get; set; }
-        public double EclipticEnd { get; set; }
+        public int Id { get; }
+        public char Glyph { get; }
+        public string Pinyin { get; }
+        public string Transcription { get; }
+        public string Ru { get; }
+        public string En { get; }
+        public int WuxingId { get; }
+        public int YinYangId { get; }
+        public double Degree { get; }
+        public int StartHour { get; }
+        public int EndHour { get; }
+        public double EclipticStart { get; }
+        public double EclipticEnd { get; }
+
+        public Branch(int id, char glyph, string pinyin, string transcription, string ru, string en, int wuxingId, int yinYangId, double degree, int startHour, int endHour, double eclipticStart, double eclipticEnd)
+        {
+            Id = id;
+            Glyph = glyph;
+            Pinyin = pinyin;
+            Transcription = transcription;
+            Ru = ru;
+            En = en;
+            WuxingId = wuxingId;
+            YinYangId = yinYangId;
+            Degree = degree;
+            StartHour = startHour;
+            EndHour = endHour;
+            EclipticStart = eclipticStart;
+            EclipticEnd = eclipticEnd;
+        }
     }
 }

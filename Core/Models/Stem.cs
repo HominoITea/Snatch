@@ -4,16 +4,31 @@ using System.Text;
 
 namespace Core.Models
 {
-    public class Stem
+    public readonly struct Stem
     {
-        public int Id { get; set; }
-        public char Glyph { get; set; }
-        public string Pinyin { get; set; }
-        public string Transcription { get; set; }
-        public int WuxingId { get; set; }
-        public int YinYangId { get; set; }
-        public double DirectionId { get; set; }
-        public int MonthKey { get; set; }
-        public int HourKey { get; set; }
+        public int Id { get; }
+        public char Glyph { get; }
+        public string Pinyin { get; }
+        public string Transcription { get; }
+        public int WuxingId { get; }
+        public int YinYangId { get; }
+        public int DirectionId { get;  }
+        public int MonthKey { get; }
+        public int HourKey { get; }
+
+        public Stem(int id, char glyph, string pinyin, string transcription, int wuxingId, int yinYangId, int directionId, int monthKey, int hourKey)
+        {
+            Id = id;
+            Glyph = glyph;
+            Pinyin = pinyin;
+            Transcription = transcription;
+            WuxingId = wuxingId;
+            YinYangId = yinYangId;
+            DirectionId = directionId;
+            MonthKey = monthKey;
+            HourKey = hourKey;
+        }
+
+
     }
 }
